@@ -15,9 +15,9 @@ namespace KanbanASP.WEB.Controllers
 
         }
 
-     //   public IActionResult Index()
-      //  {
-            //return View();
-       // }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
     }
 }

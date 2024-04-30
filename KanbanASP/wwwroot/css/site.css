@@ -18,5 +18,43 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/Images/background.jpg");
+    background-position: center;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    height: 60px;
+    border-top: 1px solid #e5e5e5;
+    align-content: center;
+    text-align: center;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.plate {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 30vh;
+    border: 1px solid black;
+    margin: 30px;
+    border-radius: 10px;
+    text-align: center;
+    padding-bottom: 15px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    opacity: 0.5;
 }

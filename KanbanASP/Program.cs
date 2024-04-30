@@ -3,8 +3,7 @@ using Microsoft.Extensions.Options;
 using KanbanASP.Controllers;
 using KanbanASP.DAL.EF;
 using Microsoft.EntityFrameworkCore;
-//Dasha, Hello!
-//How are you?
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
