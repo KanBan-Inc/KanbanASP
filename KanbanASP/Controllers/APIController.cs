@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using AutoMapper;
 using KanbanASP.DAL.EF;
+using KanbanASP.BLL.DTO;
 
 namespace KanbanASP.WEB.Controllers
 {
@@ -15,9 +16,13 @@ namespace KanbanASP.WEB.Controllers
 
         }
 
-     //   public IActionResult Index()
-      //  {
-            //return View();
-       // }
+        // GET api/API/GetProjectsName
+        [HttpGet("GetProjectsName")]
+        public async Task<ActionResult<IEnumerable<ProjectDTO>>> GetProjectsName()
+        {
+
+            throw new NotImplementedException();
+
+        }
     }
 }
