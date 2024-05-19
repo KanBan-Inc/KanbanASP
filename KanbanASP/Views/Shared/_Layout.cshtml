@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - KanbanASP</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/KanbanASP.styles.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/KanbanASP.styles.css" asp-append-version="true" /> *@
     @await RenderSectionAsync("Head", required: false)
 </head>
 <body>
@@ -31,7 +31,7 @@
             </div>
         </nav>
     </header>
-    <div id=" ">
+    <div id="mainContainer">
         <main role="main">
             @RenderBody()
         </main>

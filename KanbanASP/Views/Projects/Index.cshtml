@@ -7,5 +7,101 @@
 }
 
 <div id="container">
+    <div class="field left">
+        <div style="display: flex; justify-content: flex-end;">
+            <img class="leftbtn" onclick="leftBtnClick()" src="/Images/rightArrow.png" style="width: 30px;" />
+        </div>
 
+        <div class="contentLeft">
+            <div id="title">
+                <span>Проекты</span>
+            </div>
+
+            <div id="projects">
+                <div class="project" name="rrr">
+                    <span onclick="method()">Project 1</span>
+                </div>
+                <div class="project" name="tttt">
+                    <span onclick="method()">Project 2</span>
+                </div>
+                <div class="project" name="yyyy">
+                    <span onclick="method()">Project 3</span>
+                </div>                
+            </div>
+
+            <div id="buttons">
+                <div class="button btnNew" onclick="addNewProj()">
+                    <span>Новый проект</span>
+                </div>
+                <div class="button btnDelete">
+                    <span>Удалить проект</span>
+                </div>
+            </div>            
+        </div>
+        
+        
+    </div>
+
+    <div id="kanban">
+        <div>
+            <h6 style="margin: 0;">KanBan доска <span>NameObject</span></h6>
+        </div>
+
+        <div id="kanbanField">
+            <div class="kanbanField todo">
+                <div class="sticks" draggable="true" onmousedown="catchStick(0)">
+                    <div class="task">
+                        <span>1111111111111</span>
+                    </div>
+                    <div class="executor">
+                        <span>Joe Biden</span>
+                    </div>
+                </div>
+                <div class="sticks" draggable="true" onmousedown="catchStick(1)">
+                    <div class="task">
+                        <span>222222222222</span>
+                    </div>
+                    <div class="executor">
+                        <span>Blinkin</span>
+                    </div>
+                </div>
+                <div class="sticks" draggable="true" onmousedown="catchStick(2)">
+                    <div class="task">
+                        <span>3333333333</span>
+                    </div>
+                    <div class="executor">
+                        <span>Zelya</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="kanbanField doing">
+            </div>
+            <div class="kanbanField done">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="field right">
+        <div style="display: flex; justify-content: flex-start;">
+            <img class="rightbtn" onclick="rightBtnClick()" src="/Images/leftArrow.png" style="width: 30px;" />
+        </div>
+        <div class="contentRight">
+            <span>Vasya</span>
+            <span>Petya</span>
+            <span>Natasha</span>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/projects.js"></script>
+}
+
+<script>
+
+
+    
+    
+</script>
