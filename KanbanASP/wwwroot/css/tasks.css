@@ -1,0 +1,61 @@
+﻿#container {
+    margin: 0.5rem;
+    padding: 0;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-nav > input[type="radio"] {
+    display: none;
+}
+
+.tab-content {
+    display: none;
+    background-color: white;
+}
+
+#total:has(~ .tab-nav > #btn-total:checked),
+#project:has(~ .tab-nav > #btn-project:checked),
+#executor:has(~ .tab-nav > #btn-executor:checked),
+#status:has(~ .tab-nav > #btn-status:checked),
+#priority:has(~ .tab-nav > #btn-priority:checked),
+#deadline:has(~ .tab-nav > #btn-deadline:checked),
+#dashboard:has(~ .tab-nav > #btn-dashboard:checked) {
+    display: flex;
+}
+
+.tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid white;
+    order: -1;
+}
+
+.tab-nav > label {
+    display: flex;
+    padding: 0.5rem 1rem;
+    margin-bottom: -1px;
+    border-top-left-radius: 1rem;
+    -webkit-appearance: button;
+    transition: background-color .15s ease-in-out;
+    background-color: #dee2e69c;
+    width: calc(100%/7);
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tab-nav > input[type="radio"]:checked + label {
+    background-color: white;
+}
+
+.tab-nav > input[type="radio"]:hover:not(input[type="radio"]:checked) + label {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.tab-nav > input[type="radio"]:active:not(input[type="radio"]:checked) + label {
+    border: 1px solid black;
+}

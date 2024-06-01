@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Задачи";
+}
+
+@section Head{
+    <link rel="stylesheet" href="~/css/tasks.css" />
+}
+
+@* <script>
+    const checked_elements = document.getElementsByName("tab-btn");
+    let checked_element;
+
+    for (let i = 0; i < checked_elements.length; i++) {
+        if (checked_elements[i].checked) {
+            checked_element = checked_elements[i];
+            break;
+        }
+    }
+</script> *@
+
+<div id="container">
+    <div class="tab">
+        <div class="tab-content" id="total">
+            @await Html.PartialAsync("~/Views/Tasks/_total.cshtml") 
+        </div>
+        <div class="tab-content" id="project">
+            @await Html.PartialAsync("~/Views/Tasks/_project.cshtml")
+        </div>
+        <div class="tab-content" id="executor">
+            @await Html.PartialAsync("~/Views/Tasks/_executor.cshtml")
+        </div>
+        <div class="tab-content" id="status">
+            @await Html.PartialAsync("~/Views/Tasks/_status.cshtml")
+        </div>
+        <div class="tab-content" id="priority">
+            @await Html.PartialAsync("~/Views/Tasks/_priority.cshtml")
+        </div>
+        <div class="tab-content" id="deadline">
+            @await Html.PartialAsync("~/Views/Tasks/_deadline.cshtml")
+        </div>
+        <div class="tab-content" id="dashboard">
+            @await Html.PartialAsync("~/Views/Tasks/_dashboard.cshtml")
+        </div>
+        <div class="tab-nav">
+            <input checked id="btn-total" name="tab-btn" type="radio" value="" onclick="click_btn_tab()">
+            <label for="btn-total">Общая</label>
+            <input id="btn-project" name="tab-btn" type="radio" value="" onclick="click_btn_tab()">
+            <label for="btn-project">Проекты</label>
+            <input id="btn-executor" name="tab-btn" type="radio" value="" onclick="click_btn_tab()">
+            <label for="btn-executor">Исполнители</label>
+            <input id="btn-status" name="tab-btn" type="radio" value="" onclick="click_btn_tab()">
+            <label for="btn-status">Статус</label>
+            <input id="btn-priority" name="tab-btn" type="radio" value="" onclick="click_btn_tab()">
+            <label for="btn-priority">Приоритет</label>
+            <input id="btn-deadline" name="tab-btn" type="radio" value="" onclick="click_btn_tab()">
+            <label for="btn-deadline">Срок выполнения</label>
+            <input id="btn-dashboard" name="tab-btn" type="radio" value="" onclick="click_btn_tab()">
+            <label for="btn-dashboard">Аналитика</label>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/tasks.js"></script>
+}

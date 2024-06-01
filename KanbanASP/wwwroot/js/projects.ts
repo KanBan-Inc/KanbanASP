@@ -1,5 +1,5 @@
-﻿let animatedLeft: Boolean = false;
-let animatedRight: Boolean = false;
+﻿let animatedLeft: boolean = false;
+let animatedRight: boolean = false;
 
 function leftBtnClick() {
     if (!animatedLeft) {
@@ -33,7 +33,7 @@ function rightBtnClick() {
     }
 }
 
-let isVisibleAddProj = false;
+let isVisibleAddProj:boolean = false;
 function addNewProj() {
     if (!isVisibleAddProj) {
         $("#projects").append('<div id="addNewProj"></div>');
@@ -52,9 +52,9 @@ function confirmProj() {
     }
 }
 
-const fields = document.querySelectorAll(".kanbanField");
-const sticks = document.querySelectorAll(".sticks");
-let stick = null;
+const fields: NodeListOf<Element> = document.querySelectorAll(".kanbanField");
+const sticks: NodeListOf<Element> = document.querySelectorAll(".sticks");
+let stick: Element = null;
 
 function catchStick(ind) {
     stick = sticks[ind];
@@ -71,3 +71,4 @@ fields.forEach((field) => {
         $(stick).css('transform', 'rotate(' + deg + 'deg)');
     });
 });
+

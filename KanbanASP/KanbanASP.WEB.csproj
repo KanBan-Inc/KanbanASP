@@ -28,4 +28,10 @@
     <TypeScriptCompile Include="wwwroot\js\projects.ts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <TypeScriptCompile Update="wwwroot\js\tasks.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
 </Project>
