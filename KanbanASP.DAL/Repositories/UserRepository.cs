@@ -19,32 +19,50 @@ namespace KanbanASP.DAL.Repositories
 
         public void Create(User item)
         {
-            throw new NotImplementedException();
+            db.Users.Add(item);
+            db.SaveChanges();
+            //throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            User? user = db.Users.First(x => x.Id == id);
+
+            if (user != null)
+            {
+                db.Users.Remove(user);
+                db.SaveChanges();
+            }            
+            //throw new NotImplementedException();
         }
 
         public IEnumerable<User> Find(Func<User, bool> predicate)
         {
-            throw new NotImplementedException();
+            List<User> users = db.Users.Where(predicate).ToList();
+
+            return users;
+            //throw new NotImplementedException();
         }
 
-        public User Get(int id)
+        public User? Get(Guid? id)
         {
-            throw new NotImplementedException();
+            return db.Users.First(x => x.Id == id);
+            //throw new NotImplementedException();
         }
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            List<User> users = db.Users.ToList();
+
+            return users;
+            //throw new NotImplementedException();
         }
 
         public void Update(User item)
         {
-            throw new NotImplementedException();
+            db.Users.Update(item);
+            db.SaveChanges();
+            //throw new NotImplementedException();
         }
     }
 }
