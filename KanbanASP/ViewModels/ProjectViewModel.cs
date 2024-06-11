@@ -1,9 +1,6 @@
-﻿
-using System.Collections.Generic;
-
-namespace KanbanASP.DAL.Entities
+﻿namespace KanbanASP.Models
 {
-    public class Project
+    public class ProjectViewModel
     {
         public int Id { get; set; }
         public string? Name { get; set; }

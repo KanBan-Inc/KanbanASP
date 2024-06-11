@@ -1,4 +1,6 @@
-﻿let animatedLeft: boolean = false;
+﻿///// <reference path="global.d.ts" />
+
+let animatedLeft: boolean = false;
 let animatedRight: boolean = false;
 
 function leftBtnClick() {
@@ -33,7 +35,7 @@ function rightBtnClick() {
     }
 }
 
-let isVisibleAddProj:boolean = false;
+let isVisibleAddProj: boolean = false;
 function addNewProj() {
     if (!isVisibleAddProj) {
         $("#projects").append('<div id="addNewProj"></div>');
@@ -71,4 +73,21 @@ fields.forEach((field) => {
         $(stick).css('transform', 'rotate(' + deg + 'deg)');
     });
 });
+
+/////////////////////////
+//interface Window {
+//    allData: any;
+//}
+//import { Global } from "./global";
+function AssignName(id) {
+    const allProj = document.getElementsByClassName("projectName");
+    for (let i = 0; i < allProj.length; i++) {
+        if (i == id) {
+            document.getElementById("nameProject").textContent = allProj[i].textContent;
+            break;
+        }
+    }
+
+    //var a = allDada;
+}
 

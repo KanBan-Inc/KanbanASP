@@ -20,43 +20,36 @@ namespace KanbanASP.DAL.Repositories
         public void Create(MyTask item)
         {
             db.Tasks.Add(item);
-            db.SaveChanges();
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
-            MyTask? task = db.Tasks.First(x => x.Id == id);
+            MyTask? task = db.Tasks.Find(id);
 
             if (task != null)
             {
                 db.Tasks.Remove(task);
-                db.SaveChanges();
             }            
         }
 
         public IEnumerable<MyTask> Find(Func<MyTask, bool> predicate)
         {
-            List<MyTask> tasks = db.Tasks.Where(predicate).ToList();
-
-            return tasks;
+            return db.Tasks.Where(predicate).ToList();
         }
 
-        public MyTask? Get(Guid? id)
+        public MyTask? Get(int id)
         {
-            return db.Tasks.First(x => x.Id == id);
+            return db.Tasks.Find(id);
         }
 
         public IEnumerable<MyTask> GetAll()
         {
-            List<MyTask> tasks = db.Tasks.ToList();
-
-            return tasks;
+            return db.Tasks;
         }
 
         public void Update(MyTask item)
         {
-            db.Tasks.Update(item);
-            db.SaveChanges();
+            db.Entry(item).State = EntityState.Modified;
         }
     }
 }

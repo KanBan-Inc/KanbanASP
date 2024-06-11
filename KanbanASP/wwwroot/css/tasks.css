@@ -39,6 +39,7 @@
     padding: 0.5rem 1rem;
     margin-bottom: -1px;
     border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     -webkit-appearance: button;
     transition: background-color .15s ease-in-out;
     background-color: #dee2e69c;

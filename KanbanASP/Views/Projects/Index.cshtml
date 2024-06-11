@@ -1,10 +1,79 @@
 ﻿@{
     ViewData["Title"] = "Проекты";
+
+    List<string> projects = new List<string>();
+
+    foreach (var proj in Model)
+    {
+        if (!projects.Contains(proj.Project))
+        {
+            projects.Add(proj.Project);
+        }
+    }
+
+    // List<UserViewModel> people = new List<UserViewModel>();
+
+    // foreach (var user in Model)
+    // {
+    //     foreach(var men in people)
+    //     {
+    //         if()
+    //     }
+    //     if (people.)
+    //     {
+    //         projects.Add(proj.Project);
+    //     }
+    // }
 }
 
 @section Head{
     <link rel="stylesheet" href="~/css/Projects.css" />
 }
+
+<script>
+    const allDada = [];
+
+    let objTmp;//временный объект для пушинга
+
+    //собираем коллекцию инфы о грунтах из GroundResistance
+    @foreach (var element in @Model)
+    {
+        @Html.Raw(@"objTmp = {
+        Project: new String(""" + element.Project + @"""),
+        ProjectStatus: new String(""" + element.ProjectStatus + @"""),
+        TaskName: new String(""" + element.TaskName + @"""),
+        TaskStatus: new String(""" + element.TaskStatus + @"""),
+        TaskPriority: new String(""" + element.TaskPriority + @"""),
+        TaskDeadline: new DateTime(element.TaskDeadline),
+        UserFNmae: new String(""" + element.UserFNmae + @"""),
+        UserSName: new String(""" + element.UserSName + @"""),
+        UserLName: new String(""" + element.UserLName + @"""),
+        UserPosition: new String(""" + element.UserPosition + @"""),
+        UserPassword: new String(""" + element.UserPassword + @"""),
+        UserAdminRights: boolean(element.UserAdminRights),
+        UserBossRights: boolean(element.UserBossRights)
+        }
+
+        allData.push(objTmp);
+        ")
+        ;
+    };
+
+    //          Project = p.Name,
+    //          ProjectStatus = p.Status,
+    //          TaskName = t.Name,
+    //          TaskStatus = t.Status,
+    //          TaskPriority = t.Priority,
+    //          TaskDeadline = t.Deadline,
+    //          UserFNmae = u.FirstName,
+    //          UserSName = u.SecondName,
+    //          UserLName = u.LastName,
+    //          UserPosition = u.Position,
+    //          UserPassword = u.Password,
+    //          UserAdminRights = u.AdminRights,
+    //          UserBossRights = u.BossRights
+
+</script>
 
 <div id="container">
     <div class="field left">
@@ -18,15 +87,12 @@
             </div>
 
             <div id="projects">
-                <div class="project" name="rrr">
-                    <span onclick="method()">Project 1</span>
-                </div>
-                <div class="project" name="tttt">
-                    <span onclick="method()">Project 2</span>
-                </div>
-                <div class="project" name="yyyy">
-                    <span onclick="method()">Project 3</span>
-                </div>                
+                @for (var i=0;i< projects.Count;i++)
+                {
+                    <div class="project" onclick="AssignName(@i)">
+                        <span class="projectName">@projects[i]</span>
+                    </div>
+                }       
             </div>
 
             <div id="buttons">
@@ -44,7 +110,7 @@
 
     <div id="kanban">
         <div>
-            <h6 style="margin: 0;">KanBan доска <span>NameObject</span></h6>
+            <h6 style="margin: 0;">KanBan доска: <span id="nameProject"></span></h6>
         </div>
 
         <div id="kanbanField">
@@ -88,20 +154,13 @@
             <img class="rightbtn" onclick="rightBtnClick()" src="/Images/leftArrow.png" style="width: 30px;" />
         </div>
         <div class="contentRight">
-            <span>Vasya</span>
+            @* <span>Vasya</span>
             <span>Petya</span>
-            <span>Natasha</span>
+            <span>Natasha</span> *@
         </div>
     </div>
 </div>
 
 @section Scripts {
-    <script src="~/js/projects.js"></script>
+    <script src="~/js/project.js"></script>
 }
-
-<script>
-
-
-    
-    
-</script>

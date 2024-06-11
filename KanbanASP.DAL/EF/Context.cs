@@ -14,7 +14,7 @@ namespace KanbanASP.DAL.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Server=127.0.0.1;Port=5432;Database=KanbanDB;User Id=kanban;Password=kanban;");
+            optionsBuilder.UseNpgsql("Host=127.0.0.1;Port=5432;Database=KanbanDB;Username=kanban;Password=kanban;");
         }
     }
 }

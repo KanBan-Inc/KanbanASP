@@ -1,3 +1,4 @@
+///// <reference path="global.d.ts" />
 var animatedLeft = false;
 var animatedRight = false;
 function leftBtnClick() {
@@ -61,4 +62,19 @@ fields.forEach(function (field) {
         $(stick).css('transform', 'rotate(' + deg + 'deg)');
     });
 });
-//# sourceMappingURL=projects.js.map
+/////////////////////////
+//interface Window {
+//    allData: any;
+//}
+//import { Global } from "./global";
+function AssignName(id) {
+    var allProj = document.getElementsByClassName("projectName");
+    for (var i = 0; i < allProj.length; i++) {
+        if (i == id) {
+            document.getElementById("nameProject").textContent = allProj[i].textContent;
+            break;
+        }
+    }
+    //var a = allDada;
+}
+//# sourceMappingURL=project.js.map
