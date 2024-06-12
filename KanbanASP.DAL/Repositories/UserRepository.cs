@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using KanbanASP.DAL.Entities;
+﻿using KanbanASP.Shared.Entities;
 using KanbanASP.DAL.EF;
 using KanbanASP.DAL.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace KanbanASP.DAL.Repositories
 {

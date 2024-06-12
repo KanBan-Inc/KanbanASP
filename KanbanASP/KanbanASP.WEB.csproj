@@ -12,8 +12,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\KanbanASP.BLL\KanbanASP.BLL.csproj" />
-  </ItemGroup>
-
 </Project>

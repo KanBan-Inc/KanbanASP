@@ -1,7 +1,7 @@
 ﻿
-namespace KanbanASP.DAL.Entities
+namespace KanbanASP.Shared.DTO
 {
-    public class User
+    public class UserDTO
     {
         public Guid ID_User { get; set; }
         public string Name { get; set; }

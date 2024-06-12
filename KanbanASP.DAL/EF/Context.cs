@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using KanbanASP.DAL.Entities;
+using KanbanASP.Shared.Entities;
 
 namespace KanbanASP.DAL.EF
 {
