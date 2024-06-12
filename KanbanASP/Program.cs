@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Options;
-using KanbanASP.Controllers;
-using KanbanASP.DAL.EF;
+using KanbanASP.Infrastructure.EF;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

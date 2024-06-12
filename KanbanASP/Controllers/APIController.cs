@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using AutoMapper;
-using KanbanASP.DAL.EF;
+using KanbanASP.Infrastructure.EF;
 
 namespace KanbanASP.WEB.Controllers
 {

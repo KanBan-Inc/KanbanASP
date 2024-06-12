@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using KanbanASP.Shared.Entities;
 
-namespace KanbanASP.DAL.EF
+namespace KanbanASP.Infrastructure.EF
 {
     public class Context : DbContext
     {

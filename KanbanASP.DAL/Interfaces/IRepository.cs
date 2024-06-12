@@ -1,4 +1,4 @@
-﻿namespace KanbanASP.DAL.Interfaces
+﻿namespace KanbanASP.Infrastructure.Interfaces
 {
     public interface IRepository<T> where T : class
     {

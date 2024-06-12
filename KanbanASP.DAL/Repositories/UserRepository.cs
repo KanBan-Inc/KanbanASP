@@ -1,8 +1,7 @@
 ﻿using KanbanASP.Shared.Entities;
-using KanbanASP.DAL.EF;
-using KanbanASP.DAL.Interfaces;
+using KanbanASP.Infrastructure.Interfaces;
 
-namespace KanbanASP.DAL.Repositories
+namespace KanbanASP.Infrastructure.EF
 {
     public class UserRepository : IRepository<User>
     {
