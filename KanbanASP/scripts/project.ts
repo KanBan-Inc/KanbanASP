@@ -1,4 +1,5 @@
-﻿///// <reference path="global.d.ts" />
+﻿/// <reference path="../scripts/globals.d.ts" />
+//import Global from ""
 
 let animatedLeft: boolean = false;
 let animatedRight: boolean = false;
@@ -75,19 +76,34 @@ fields.forEach((field) => {
 });
 
 /////////////////////////
-//interface Window {
-//    allData: any;
-//}
-//import { Global } from "./global";
+
 function AssignName(id) {
     const allProj = document.getElementsByClassName("projectName");
+    let currentProject: string = "";
     for (let i = 0; i < allProj.length; i++) {
         if (i == id) {
-            document.getElementById("nameProject").textContent = allProj[i].textContent;
+            currentProject = allProj[i].textContent;
+            document.getElementById("nameProject").textContent = currentProject;
             break;
         }
     }
 
-    //var a = allDada;
-}
+    let people: string[] = [];
 
+    $(".contentRight").remove();
+    $(".right").append('<div class="contentRight"></div>');
+
+    for (let i = 0; i < allData.length; i++) {
+        if (allData[i].Project == currentProject && !people.includes(allData[i].UserLName + " " + allData[i].UserFName + " " + allData[i].UserSName)) {
+            $(".contentRight").append('<span>' + allData[i].UserLName + " " + allData[i].UserFName[0] + ". " + allData[i].UserSName[0] + '.</span>');
+            people.push(allData[i].UserLName + " " + allData[i].UserFName + " " + allData[i].UserSName);
+        }
+    }
+    if (animatedRight) {
+        $(".contentRight").css("display", "flex");
+    }
+
+
+
+    var a;
+}

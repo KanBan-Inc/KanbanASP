@@ -11,69 +11,13 @@
         }
     }
 
-    // List<UserViewModel> people = new List<UserViewModel>();
-
-    // foreach (var user in Model)
-    // {
-    //     foreach(var men in people)
-    //     {
-    //         if()
-    //     }
-    //     if (people.)
-    //     {
-    //         projects.Add(proj.Project);
-    //     }
-    // }
 }
 
 @section Head{
-    <link rel="stylesheet" href="~/css/Projects.css" />
+    <link rel="stylesheet" href="~/css/projects.css" />
 }
 
-<script>
-    const allDada = [];
 
-    let objTmp;//временный объект для пушинга
-
-    //собираем коллекцию инфы о грунтах из GroundResistance
-    @foreach (var element in @Model)
-    {
-        @Html.Raw(@"objTmp = {
-        Project: new String(""" + element.Project + @"""),
-        ProjectStatus: new String(""" + element.ProjectStatus + @"""),
-        TaskName: new String(""" + element.TaskName + @"""),
-        TaskStatus: new String(""" + element.TaskStatus + @"""),
-        TaskPriority: new String(""" + element.TaskPriority + @"""),
-        TaskDeadline: new DateTime(element.TaskDeadline),
-        UserFNmae: new String(""" + element.UserFNmae + @"""),
-        UserSName: new String(""" + element.UserSName + @"""),
-        UserLName: new String(""" + element.UserLName + @"""),
-        UserPosition: new String(""" + element.UserPosition + @"""),
-        UserPassword: new String(""" + element.UserPassword + @"""),
-        UserAdminRights: boolean(element.UserAdminRights),
-        UserBossRights: boolean(element.UserBossRights)
-        }
-
-        allData.push(objTmp);
-        ")
-        ;
-    };
-
-    //          Project = p.Name,
-    //          ProjectStatus = p.Status,
-    //          TaskName = t.Name,
-    //          TaskStatus = t.Status,
-    //          TaskPriority = t.Priority,
-    //          TaskDeadline = t.Deadline,
-    //          UserFNmae = u.FirstName,
-    //          UserSName = u.SecondName,
-    //          UserLName = u.LastName,
-    //          UserPosition = u.Position,
-    //          UserPassword = u.Password,
-    //          UserAdminRights = u.AdminRights,
-    //          UserBossRights = u.BossRights
-
-</script>
 
 <div id="container">
     <div class="field left">
@@ -115,7 +59,10 @@
 
         <div id="kanbanField">
             <div class="kanbanField todo">
-                <div class="sticks" draggable="true" onmousedown="catchStick(0)">
+                <div class="sticksField">
+
+                </div>
+                @* <div class="sticks" draggable="true" onmousedown="catchStick(0)">
                     <div class="task">
                         <span>1111111111111</span>
                     </div>
@@ -138,12 +85,18 @@
                     <div class="executor">
                         <span>Zelya</span>
                     </div>
-                </div>
+                </div> *@
 
             </div>
             <div class="kanbanField doing">
+                <div class="sticksField">
+
+                </div>
             </div>
             <div class="kanbanField done">
+                <div class="sticksField">
+
+                </div>
             </div>
         </div>
 
@@ -154,13 +107,46 @@
             <img class="rightbtn" onclick="rightBtnClick()" src="/Images/leftArrow.png" style="width: 30px;" />
         </div>
         <div class="contentRight">
-            @* <span>Vasya</span>
-            <span>Petya</span>
-            <span>Natasha</span> *@
+            
         </div>
     </div>
 </div>
 
 @section Scripts {
+    <script>
+        let allData = [];
+
+        let objTmp;//временный объект для пушинга
+
+        //собираем коллекцию инфы
+        @foreach (var element in @Model)
+        {
+            @Html.Raw(@"objTmp = {
+        Project: new String('" + element.Project + @"'),
+        ProjectStatus: new String('" + element.ProjectStatus + @"'),
+        TaskName: new String('" + element.TaskName + @"'),
+        TaskStatus: new String('" + element.TaskStatus + @"'),
+        TaskPriority: new String('" + element.TaskPriority + @"'),
+        TaskDeadline: new Date('" + element.TaskDeadline + @"'),
+        UserFName: new String('" + element.UserFName + @"'),
+        UserSName: new String('" + element.UserSName + @"'),
+        UserLName: new String('" + element.UserLName + @"'),
+        UserPosition: new String('" + element.UserPosition + @"'),
+        UserPassword: new String('" + element.UserPassword + @"'),
+        UserAdminRights: new String('" + element.UserAdminRights + @"'),
+        UserBossRights: new String('" + element.UserBossRights + @"')
+        }
+
+        allData.push(objTmp);
+        ")
+            ;
+
+        };
+
+       
+
+
+    </script>
+
     <script src="~/js/project.js"></script>
 }

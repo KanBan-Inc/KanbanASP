@@ -1,11 +1,12 @@
-///// <reference path="global.d.ts" />
-var animatedLeft = false;
-var animatedRight = false;
+/// <reference path="../scripts/globals.d.ts" />
+//import Global from ""
+let animatedLeft = false;
+let animatedRight = false;
 function leftBtnClick() {
     if (!animatedLeft) {
         $(".left").css('flex', '0 0 15%');
         $(".leftbtn").css('transform', 'rotate(180deg)');
-        setTimeout(function () { return $(".contentLeft").css("display", "flex"); }, 500);
+        setTimeout(() => $(".contentLeft").css("display", "flex"), 500);
         animatedLeft = true;
     }
     else if (animatedLeft) {
@@ -19,7 +20,7 @@ function rightBtnClick() {
     if (!animatedRight) {
         $(".right").css('flex', '0 0 15%');
         $(".rightbtn").css('transform', 'rotate(180deg)');
-        setTimeout(function () { return $(".contentRight").css("display", "flex"); }, 500);
+        setTimeout(() => $(".contentRight").css("display", "flex"), 500);
         animatedRight = true;
     }
     else if (animatedRight) {
@@ -29,7 +30,7 @@ function rightBtnClick() {
         animatedRight = false;
     }
 }
-var isVisibleAddProj = false;
+let isVisibleAddProj = false;
 function addNewProj() {
     if (!isVisibleAddProj) {
         $("#projects").append('<div id="addNewProj"></div>');
@@ -40,41 +41,51 @@ function addNewProj() {
 }
 function confirmProj() {
     if (isVisibleAddProj) {
-        var str = document.getElementsByTagName("input")[0].value;
+        const str = document.getElementsByTagName("input")[0].value;
         $("#addNewProj").remove();
         $("#projects").append('<div class="project"><span onclick="method()" >' + str + '</span></div>');
         isVisibleAddProj = false;
     }
 }
-var fields = document.querySelectorAll(".kanbanField");
-var sticks = document.querySelectorAll(".sticks");
-var stick = null;
+const fields = document.querySelectorAll(".kanbanField");
+const sticks = document.querySelectorAll(".sticks");
+let stick = null;
 function catchStick(ind) {
     stick = sticks[ind];
 }
-fields.forEach(function (field) {
-    field.addEventListener("dragover", function (e) {
+fields.forEach((field) => {
+    field.addEventListener("dragover", (e) => {
         e.preventDefault();
     });
-    field.addEventListener("drop", function () {
+    field.addEventListener("drop", () => {
         field.appendChild(stick);
-        var deg = Math.round(Math.random() * 10) - 5;
+        const deg = Math.round(Math.random() * 10) - 5;
         $(stick).css('transform', 'rotate(' + deg + 'deg)');
     });
 });
 /////////////////////////
-//interface Window {
-//    allData: any;
-//}
-//import { Global } from "./global";
 function AssignName(id) {
-    var allProj = document.getElementsByClassName("projectName");
-    for (var i = 0; i < allProj.length; i++) {
+    const allProj = document.getElementsByClassName("projectName");
+    let currentProject = "";
+    for (let i = 0; i < allProj.length; i++) {
         if (i == id) {
-            document.getElementById("nameProject").textContent = allProj[i].textContent;
+            currentProject = allProj[i].textContent;
+            document.getElementById("nameProject").textContent = currentProject;
             break;
         }
     }
-    //var a = allDada;
+    let people = [];
+    $(".contentRight").remove();
+    $(".right").append('<div class="contentRight"></div>');
+    for (let i = 0; i < allData.length; i++) {
+        if (allData[i].Project == currentProject && !people.includes(allData[i].UserLName + " " + allData[i].UserFName + " " + allData[i].UserSName)) {
+            $(".contentRight").append('<span>' + allData[i].UserLName + " " + allData[i].UserFName[0] + ". " + allData[i].UserSName[0] + '.</span>');
+            people.push(allData[i].UserLName + " " + allData[i].UserFName + " " + allData[i].UserSName);
+        }
+    }
+    if (animatedRight) {
+        $(".contentRight").css("display", "flex");
+    }
+    var a;
 }
 //# sourceMappingURL=project.js.map

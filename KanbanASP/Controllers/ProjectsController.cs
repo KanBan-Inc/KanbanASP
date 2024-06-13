@@ -51,7 +51,7 @@ namespace KanbanASP.WEB.Controllers
                           TaskStatus = t.Status,
                           TaskPriority = t.Priority,
                           TaskDeadline = t.Deadline,
-                          UserFNmae = u.FirstName,
+                          UserFName = u.FirstName,
                           UserSName = u.SecondName,
                           UserLName = u.LastName,
                           UserPosition = u.Position,
@@ -59,7 +59,7 @@ namespace KanbanASP.WEB.Controllers
                           UserAdminRights = u.AdminRights,
                           UserBossRights = u.BossRights
                       };
-
+            
             return View(all);
         }
 

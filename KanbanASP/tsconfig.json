@@ -1,0 +1,17 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es2016",
+    "outDir": "wwwroot/js"
+  },
+  "include": [
+    "scripts/**/*"
+  ],
+  "files": [
+    "../KanbanASP/scripts/globals.d.ts"
+  ]
+}
