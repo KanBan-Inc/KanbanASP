@@ -12,16 +12,12 @@ namespace KanbanASP.WEB.Controllers
 {
     public class ProjectsController : Controller
     {
-
-        //EFUnitOfWork _unitOfWork;
-
         private UserService _userService;
         private ProjectService _projectService;
         private MyTaskService _taskService;
 
         public ProjectsController()
         {
-            //_unitOfWork = new EFUnitOfWork();
             _userService = new UserService();
             _projectService = new ProjectService();
             _taskService = new MyTaskService();

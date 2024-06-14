@@ -1,5 +1,4 @@
 /// <reference path="../scripts/globals.d.ts" />
-//import Global from ""
 let animatedLeft = false;
 let animatedRight = false;
 function leftBtnClick() {
@@ -47,24 +46,12 @@ function confirmProj() {
         isVisibleAddProj = false;
     }
 }
-const fields = document.querySelectorAll(".kanbanField");
-const sticks = document.querySelectorAll(".sticks");
-let stick = null;
-function catchStick(ind) {
-    stick = sticks[ind];
-}
-fields.forEach((field) => {
-    field.addEventListener("dragover", (e) => {
-        e.preventDefault();
-    });
-    field.addEventListener("drop", () => {
-        field.appendChild(stick);
-        const deg = Math.round(Math.random() * 10) - 5;
-        $(stick).css('transform', 'rotate(' + deg + 'deg)');
-    });
-});
 /////////////////////////
+const fields = document.querySelectorAll(".kanbanField"); //поля доски канбан
+let stick; //задача
+let sticks; //коллекция задач
 function AssignName(id) {
+    //добавляем имя проекта на титул доски
     const allProj = document.getElementsByClassName("projectName");
     let currentProject = "";
     for (let i = 0; i < allProj.length; i++) {
@@ -74,6 +61,7 @@ function AssignName(id) {
             break;
         }
     }
+    //добавляем в правое поле список участников проекта
     let people = [];
     $(".contentRight").remove();
     $(".right").append('<div class="contentRight"></div>');
@@ -86,6 +74,52 @@ function AssignName(id) {
     if (animatedRight) {
         $(".contentRight").css("display", "flex");
     }
-    var a;
+    //добавляем задачи на доску канбан
+    sticks = [];
+    let counterSticks = 0;
+    $('.sticks').remove();
+    for (let i = 0; i < allData.length; i++) {
+        if (allData[i].Project == currentProject) {
+            if (allData[i].TaskStatus == "todo") {
+                addStick(i, counterSticks, ".todo");
+            }
+            else if (allData[i].TaskStatus == "doing") {
+                addStick(i, counterSticks, ".doing");
+            }
+            else if (allData[i].TaskStatus == "done") {
+                addStick(i, counterSticks, ".done");
+            }
+            counterSticks++;
+        }
+    }
+}
+function catchStick(ind) {
+    stick = undefined;
+    stick = sticks[ind];
+    fields.forEach((field) => {
+        field.addEventListener("dragover", (e) => {
+            e.preventDefault();
+        });
+        field.addEventListener("drop", () => {
+            field.append(stick);
+            const deg = Math.round(Math.random() * 10) - 5;
+            $(stick).css('transform', 'rotate(' + deg + 'deg)');
+        });
+    });
+}
+function addStick(i, counterSticks, nameField) {
+    stick = undefined;
+    $(nameField).append('<div class="sticks" id="stick' + counterSticks + '"  draggable="true" onmousedown="catchStick(' + counterSticks + ')" >' +
+        '<div class="task">' +
+        '<span>' + allData[i].TaskName + '</span>' +
+        '</div>' +
+        '<div class="executor">' +
+        '<span>' + allData[i].UserLName + " " + allData[i].UserFName[0] + "." + allData[i].UserSName[0] + '</span>' +
+        '</div>' +
+        '</div>');
+    stick = document.querySelector('#stick' + counterSticks);
+    sticks.push(stick);
+    const deg = Math.round(Math.random() * 10) - 5;
+    $(sticks[counterSticks]).css('transform', 'rotate(' + deg + 'deg)');
 }
 //# sourceMappingURL=project.js.map

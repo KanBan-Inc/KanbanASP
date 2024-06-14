@@ -17,8 +17,6 @@
     <link rel="stylesheet" href="~/css/projects.css" />
 }
 
-
-
 <div id="container">
     <div class="field left">
         <div style="display: flex; justify-content: flex-end;">
@@ -31,7 +29,7 @@
             </div>
 
             <div id="projects">
-                @for (var i=0;i< projects.Count;i++)
+                @for (var i = 0; i < projects.Count; i++)
                 {
                     <div class="project" onclick="AssignName(@i)">
                         <span class="projectName">@projects[i]</span>
@@ -58,45 +56,14 @@
         </div>
 
         <div id="kanbanField">
-            <div class="kanbanField todo">
-                <div class="sticksField">
-
-                </div>
-                @* <div class="sticks" draggable="true" onmousedown="catchStick(0)">
-                    <div class="task">
-                        <span>1111111111111</span>
-                    </div>
-                    <div class="executor">
-                        <span>Joe Biden</span>
-                    </div>
-                </div>
-                <div class="sticks" draggable="true" onmousedown="catchStick(1)">
-                    <div class="task">
-                        <span>222222222222</span>
-                    </div>
-                    <div class="executor">
-                        <span>Blinkin</span>
-                    </div>
-                </div>
-                <div class="sticks" draggable="true" onmousedown="catchStick(2)">
-                    <div class="task">
-                        <span>3333333333</span>
-                    </div>
-                    <div class="executor">
-                        <span>Zelya</span>
-                    </div>
-                </div> *@
+            <div class="kanbanField todo" >
 
             </div>
             <div class="kanbanField doing">
-                <div class="sticksField">
 
-                </div>
             </div>
             <div class="kanbanField done">
-                <div class="sticksField">
 
-                </div>
             </div>
         </div>
 
@@ -141,10 +108,7 @@
         ")
             ;
 
-        };
-
-       
-
+        };      
 
     </script>
 

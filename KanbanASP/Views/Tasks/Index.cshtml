@@ -1,27 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Задачи";
+
+   
 }
 
 @section Head{
     <link rel="stylesheet" href="~/css/tasks.css" />
 }
 
-@* <script>
-    const checked_elements = document.getElementsByName("tab-btn");
-    let checked_element;
+<script>
 
-    for (let i = 0; i < checked_elements.length; i++) {
-        if (checked_elements[i].checked) {
-            checked_element = checked_elements[i];
-            break;
-        }
-    }
-</script> *@
+</script>
 
 <div id="container">
     <div class="tab">
         <div class="tab-content" id="total">
-            @await Html.PartialAsync("~/Views/Tasks/_total.cshtml") 
+            @await Html.PartialAsync("~/Views/Tasks/_total.cshtml")
         </div>
         <div class="tab-content" id="project">
             @await Html.PartialAsync("~/Views/Tasks/_project.cshtml")
