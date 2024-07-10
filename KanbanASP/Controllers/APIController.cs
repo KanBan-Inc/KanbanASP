@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using AutoMapper;
 using KanbanASP.DAL.EF;
@@ -16,7 +16,6 @@ namespace KanbanASP.WEB.Controllers
 
         }
 
-        // GET api/API/GetProjectsName
         [HttpGet("GetProjectsName")]
         public async Task<ActionResult<IEnumerable<ProjectDTO>>> GetProjectsName()
         {
@@ -24,5 +23,6 @@ namespace KanbanASP.WEB.Controllers
             throw new NotImplementedException();
 
         }
+
     }
 }

@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Проекты";
+
+    List<string> projects = new List<string>();
+
+    foreach (var proj in Model)
+    {
+        if (!projects.Contains(proj.Project))
+        {
+            projects.Add(proj.Project);
+        }
+    }
+
+}
+
+@section Head{
+    <link rel="stylesheet" href="~/css/projects.css" />
+}
+
+<div id="container">
+    <div class="field left">
+        <div style="display: flex; justify-content: flex-end;">
+            <img class="leftbtn" onclick="leftBtnClick()" src="/Images/rightArrow.png" style="width: 30px;" />
+        </div>
+
+        <div class="contentLeft">
+            <div id="title">
+                <span>Проекты</span>
+            </div>
+
+            <div id="projects">
+                @for (var i = 0; i < projects.Count; i++)
+                {
+                    <div class="project" onclick="AssignName(@i)">
+                        <span class="projectName">@projects[i]</span>
+                    </div>
+                }       
+            </div>
+
+            <div id="buttons">
+                <div class="button btnNew" onclick="addNewProj()">
+                    <span>Новый проект</span>
+                </div>
+                <div class="button btnDelete">
+                    <span>Удалить проект</span>
+                </div>
+            </div>            
+        </div>
+        
+        
+    </div>
+
+    <div id="kanban">
+        <div>
+            <h6 style="margin: 0;">KanBan доска: <span id="nameProject"></span></h6>
+        </div>
+
+        <div id="kanbanField">
+            <div class="kanbanField todo" >
+
+            </div>
+            <div class="kanbanField doing">
+
+            </div>
+            <div class="kanbanField done">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="field right">
+        <div style="display: flex; justify-content: flex-start;">
+            <img class="rightbtn" onclick="rightBtnClick()" src="/Images/leftArrow.png" style="width: 30px;" />
+        </div>
+        <div class="contentRight">
+            
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let allData = [];
+
+        let objTmp;//временный объект для пушинга
+
+        //собираем коллекцию инфы
+        @foreach (var element in @Model)
+        {
+            @Html.Raw(@"objTmp = {
+        Project: new String('" + element.Project + @"'),
+        ProjectStatus: new String('" + element.ProjectStatus + @"'),
+        TaskName: new String('" + element.TaskName + @"'),
+        TaskStatus: new String('" + element.TaskStatus + @"'),
+        TaskPriority: new String('" + element.TaskPriority + @"'),
+        TaskDeadline: new Date('" + element.TaskDeadline + @"'),
+        UserFName: new String('" + element.UserFName + @"'),
+        UserSName: new String('" + element.UserSName + @"'),
+        UserLName: new String('" + element.UserLName + @"'),
+        UserPosition: new String('" + element.UserPosition + @"'),
+        UserPassword: new String('" + element.UserPassword + @"'),
+        UserAdminRights: new String('" + element.UserAdminRights + @"'),
+        UserBossRights: new String('" + element.UserBossRights + @"')
+        }
+
+        allData.push(objTmp);
+        ")
+            ;
+
+        };      
+
+    </script>
+
+    <script src="~/js/project.js"></script>
+}

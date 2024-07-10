@@ -1,46 +1,55 @@
-﻿using KanbanASP.DAL.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using KanbanASP.DAL.Entities;
 using KanbanASP.DAL.EF;
+using KanbanASP.DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace KanbanASP.DAL.Repositories
 {
     public class ProjectRepository : IRepository<Project>
     {
-        private readonly Context _context;
+        private Context db;
 
-        ProjectRepository(Context context)
+        public ProjectRepository(Context db)
         {
-            _context = context;
+            this.db = db;
         }
 
         public void Create(Project item)
         {
-            throw new NotImplementedException();
+            db.Projects.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Project? proj = db.Projects.Find(id);
+
+            if (proj != null)
+            {
+                db.Projects.Remove(proj);
+            }
         }
 
         public IEnumerable<Project> Find(Func<Project, bool> predicate)
         {
-            throw new NotImplementedException();
+            return db.Projects.Where(predicate).ToList();
         }
 
-        public Project Get(int id)
+        public Project? Get(int id)
         {
-            throw new NotImplementedException();
+            return db.Projects.Find(id);
         }
 
         public IEnumerable<Project> GetAll()
         {
-            return _context.Projects;
+            return db.Projects;
         }
 
         public void Update(Project item)
         {
-            throw new NotImplementedException();
+            db.Entry(item).State = EntityState.Modified;
         }
     }
 }

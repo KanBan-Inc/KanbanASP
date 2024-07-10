@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using KanbanASP.DAL.Entities;
+﻿using KanbanASP.DAL.Entities;
 using KanbanASP.DAL.EF;
 using KanbanASP.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -19,32 +16,37 @@ namespace KanbanASP.DAL.Repositories
 
         public void Create(User item)
         {
-            throw new NotImplementedException();
+            db.Users.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            User? user = db.Users.Find(id);
+
+            if (user != null)
+            {
+                db.Users.Remove(user);
+            }
         }
 
         public IEnumerable<User> Find(Func<User, bool> predicate)
         {
-            throw new NotImplementedException();
+            return db.Users.Where(predicate).ToList();
         }
 
-        public User Get(int id)
+        public User? Get(int id)
         {
-            throw new NotImplementedException();
+            return db.Users.Find(id);
         }
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return db.Users;
         }
 
         public void Update(User item)
         {
-            throw new NotImplementedException();
+            db.Entry(item).State = EntityState.Modified;
         }
     }
 }

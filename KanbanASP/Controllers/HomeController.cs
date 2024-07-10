@@ -1,6 +1,16 @@
 ﻿using KanbanASP.Models;
 using Microsoft.AspNetCore.Mvc;
+//using System.Web.Mvc;
 using System.Diagnostics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using KanbanASP.BLL.Interfaces;
+using KanbanASP.BLL.DTO;
+using KanbanASP.WEB;
+using AutoMapper;
+using KanbanASP.BLL.Infrastructure;
 
 namespace KanbanASP.Controllers
 {
