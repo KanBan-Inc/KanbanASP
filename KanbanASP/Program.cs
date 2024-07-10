@@ -15,6 +15,7 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("host=localhost port=5432 dbname=postgres user=postgres password=qwerty")));
 
 
+
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI(options =>

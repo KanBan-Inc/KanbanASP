@@ -3,11 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanbanASP.WEB", "KanbanASP\KanbanASP.WEB.csproj", "{AEC5EDE9-A41E-49DE-9F66-6BCE643936A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KanbanASP.WEB", "KanbanASP\KanbanASP.WEB.csproj", "{AEC5EDE9-A41E-49DE-9F66-6BCE643936A8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C2153112-0033-47A6-AF2F-2297AD3A0D74} = {C2153112-0033-47A6-AF2F-2297AD3A0D74}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanbanASP.DAL", "KanbanASP.DAL\KanbanASP.DAL.csproj", "{C2153112-0033-47A6-AF2F-2297AD3A0D74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KanbanASP.DAL", "KanbanASP.DAL\KanbanASP.DAL.csproj", "{C2153112-0033-47A6-AF2F-2297AD3A0D74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanbanASP.BLL", "KanbanASP.BLL\KanbanASP.BLL.csproj", "{36BE5A3E-E6B8-4581-81B9-1D828233076D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KanbanASP.BLL", "KanbanASP.BLL\KanbanASP.BLL.csproj", "{36BE5A3E-E6B8-4581-81B9-1D828233076D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

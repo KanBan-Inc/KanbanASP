@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using KanbanASP.DAL.Entities;
 
 namespace KanbanASP.DAL.EF
@@ -8,7 +8,7 @@ namespace KanbanASP.DAL.EF
         public DbSet<User> Users => Set<User>();
         public DbSet<Project> Projects => Set<Project>();
         public DbSet<MyTask> Tasks => Set<MyTask>();
-
+        
         public Context(DbContextOptions options) : base(options) { }
         public Context() { Database.EnsureCreated(); }
 
